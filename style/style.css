@@ -1,0 +1,143 @@
+/* Tao một before danh cho li để thực hiện tao 1 thanh màu xanh nằm ngang trên giao diện */
+
+header .navbar-collapse .nav-item {
+    position: relative;
+    margin-right: 20px;
+}
+
+header .navbar-collapse .nav-item::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: green;
+    transition: 0.5s;
+}
+
+header .navbar-collapse .nav-item:hover::before {
+    width: 100%;
+}
+
+header .navbar-collapse .nav-item:hover a {
+    color: green !important;
+}
+
+header .navbar-collapse .active {
+    color: green !important;
+}
+
+header .navbar-collapse .active::before {
+    width: 100%;
+}
+
+/* carousel css */
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 43, 54, 0.5);
+    z-index: 2;
+}
+
+.carousel_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    text-align: center;
+}
+
+.cyber_carousel .carousel_text img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+/* project css */
+.cyber_project .nav-item .active {
+    background-color: green;
+    border-color: green !important;
+    color: white;
+}
+
+.cyber_project .project_item .project_text {
+    border: 2px solid transparent;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+}
+
+.cyber_project .project_item:hover .project_text {
+    border-color: green;
+}
+
+.demo_animation {
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    animation-name: myAnimation;
+    animation-duration: 15s;
+}
+
+@keyframes myAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(300px, 0);
+    }
+
+    50% {
+        transform: translate(300px, 200px);
+    }
+
+    75% {
+        transform: translate(0px, 200px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* max-width: laptop first, pc -> mobile */
+/* min-width: mobile first -> laptop */
+/* neu o man hinh dien thoai thi logo chu mau cam, laptop hay desktop thi giu mau trang */
+
+/* o title cua phan carousel, neu o mobile 576px thi chinh mau do, con neu o vung 576 - 992px thi chinh mau cam, con lai thi van mau trang */
+@media screen and (max-width: 576px) {
+    header .navbar-brand span {
+        color: orange !important;
+    }
+    .cyber_carousel .carousel_text h2 {
+        color: red;
+    }
+}
+
+@media screen and (min-width: 576px) and  (max-width: 992px) { 
+    .cyber_carousel .carousel_text h2 {
+        color: orange;
+    }
+}
+
+@media screen and (min-width: 992px) { 
+    .cyber_carousel .carousel_text h2 {
+        color: white;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .cyber_project .nav-item .active{
+        background-color: red;
+        border-color: red !important;
+    }
+}
+
+
+
